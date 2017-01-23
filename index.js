@@ -23,7 +23,7 @@ sequelize.sync();
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/search/latest', (req, res) => {
-	Search.findAll({ limit: 10, order: [['username', 'DESC']] })
+	Search.findAll({ limit: 10, order: [['when', 'DESC']] })
 		.then(searches => {
       res.json(searches);
     })
