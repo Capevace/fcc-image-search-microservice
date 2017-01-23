@@ -37,7 +37,7 @@ app.get('/search/:query/:page?', (req, res) => {
   const page = parseInt(req.params.page, 10) || 0;
   const offset = parseInt(req.query.offset, 10) || 0;
   const pageIndex = page * 10 + 1;
-  const startIndex = req.query.offset ? offset : pageIndex;
+  const startIndex = req.query.offset ? offset + 1 : pageIndex;
 
   const url = 'https://www.googleapis.com/customsearch/v1'
     + '?key=' + process.env.GKEY
@@ -52,6 +52,11 @@ app.get('/search/:query/:page?', (req, res) => {
     .get(url)
     .then(result => {
       console.log('Result', result);
+      if (!result.data.items) {
+        res.json([]);
+        return;
+      }
+      
       const items = result.data.items
         .map(item => ({
           url: item.link,
