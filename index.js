@@ -23,9 +23,10 @@ sequelize.sync();
 app.set('port', (process.env.PORT || 5000));
 
 function description() {
-  return '<h1>Usage:</h1>\n'
+  return '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\n'
+    + '<div class="container"><h1>Usage:</h1>\n'
     + '<p>Search: <pre>https://fcc-mat-image-search.herokuapp.com/search/{query}?offset={X}</pre></p>\n'
-    + '<p>Search: <pre>https://fcc-mat-image-search.herokuapp.com/search/latest</pre></p>\n';
+    + '<p>Latest: <pre>https://fcc-mat-image-search.herokuapp.com/search/latest</pre></p></div>\n';
 }
 
 app.get('/', (req, res) => {
