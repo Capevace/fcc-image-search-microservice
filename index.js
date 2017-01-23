@@ -44,9 +44,12 @@ app.get('/search/:query/:page?', (req, res) => {
     + '&searchType=image'
     + '&start=' + startIndex;
 
+  console.log('URL', url);
+
   axios
     .get(url)
     .then(result => {
+      console.log('Result', result);
       const items = result.items
         .map(item => ({
           url: item.link,
