@@ -7,6 +7,9 @@
     "url": "https://github.com/Capevace/fcc-image-search-microservice",
     "type": "git"
   },
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": "Lukas von Mateffy (@Capevace)",
   "license": "MIT",
   "dependencies": {
