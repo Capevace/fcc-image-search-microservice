@@ -36,8 +36,8 @@ app.get('/search/latest', (req, res) => {
 app.get('/search/:query/:page?', (req, res) => {
   const page = parseInt(req.params.page, 10) || 0;
   const offset = parseInt(req.query.offset, 10) || 0;
-  const page = page * 10 + 1;
-  const startIndex = req.query.offset ? offset : page;
+  const pageIndex = page * 10 + 1;
+  const startIndex = req.query.offset ? offset : pageIndex;
 
   const url = 'https://www.googleapis.com/customsearch/v1'
     + '?key=' + process.env.GKEY
