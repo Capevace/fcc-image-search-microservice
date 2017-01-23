@@ -25,7 +25,7 @@ app.set('port', (process.env.PORT || 5000));
 app.get('/search/latest', (req, res) => {
 	Search.findAll({ limit: 10, order: [['when', 'DESC']] })
 		.then(searches => {
-      res.json(searches);
+      res.json(searches.map(search => ({ term: search.term, when: search.when })));
     })
     .catch(err => {
       res.send('An error occurred').status(500);
