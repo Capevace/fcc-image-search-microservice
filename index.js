@@ -22,6 +22,20 @@ sequelize.sync();
 
 app.set('port', (process.env.PORT || 5000));
 
+function description() {
+  return '<h1>Usage:</h1>\n'
+    + '<p>Search: <pre>https://fcc-mat-image-search.herokuapp.com/search/{query}?offset={X}</pre></p>\n'
+    + '<p>Search: <pre>https://fcc-mat-image-search.herokuapp.com/search/latest</pre></p>\n';
+}
+
+app.get('/', (req, res) => {
+  res.send(description());
+});
+
+app.get('/search', (req, res) => {
+  res.send(description());
+});
+
 app.get('/search/latest', (req, res) => {
 	Search.findAll({ limit: 10, order: [['when', 'DESC']] })
 		.then(searches => {
