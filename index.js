@@ -23,7 +23,7 @@ sequelize.sync();
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/search/latest', (req, res) => {
-	Search.findAll({ limit: 10 })
+	Search.findAll({ limit: 10, order: [['username', 'DESC']] })
 		.then(searches => {
       res.json(searches);
     })
@@ -56,7 +56,7 @@ app.get('/search/:query/:page?', (req, res) => {
         res.json([]);
         return;
       }
-      
+
       const items = result.data.items
         .map(item => ({
           url: item.link,
