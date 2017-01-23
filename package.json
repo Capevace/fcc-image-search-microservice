@@ -1,0 +1,17 @@
+{
+  "name": "image-search",
+  "version": "1.0.0",
+  "description": "The Image Search Abstraction Layer for FCC.",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/Capevace/fcc-image-search-microservice",
+    "type": "git"
+  },
+  "author": "Lukas von Mateffy (@Capevace)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "express": "^4.14.0",
+    "sequelize": "^3.29.0"
+  }
+}
