@@ -50,7 +50,7 @@ app.get('/search/:query/:page?', (req, res) => {
     .get(url)
     .then(result => {
       console.log('Result', result);
-      const items = result.items
+      const items = result.data.items
         .map(item => ({
           url: item.link,
           snippet: item.snippet,
